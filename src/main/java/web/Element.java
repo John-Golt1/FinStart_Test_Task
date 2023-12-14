@@ -9,7 +9,16 @@ public class Element {
     public Element(WebDriver driver){
         this.driver = driver;
     }
+
     public WebElement get(String xpath) {
         return driver.findElement(By.xpath(xpath));
+    }
+
+    public boolean isElementPresent(String xpath) {
+        try {
+            return driver.findElements(By.xpath(xpath)).size() > 0;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }
