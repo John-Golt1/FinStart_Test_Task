@@ -1,3 +1,5 @@
+package web.tests;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +15,9 @@ public abstract class AbstractTest {
     public static WebDriver getDriver() {
         if (chromeDriverInstance == null) {
             try {
-                WebDriverManager.chromedriver().setup();
+                //WebDriverManager.chromedriver().setup();
+                System.setProperty("webdriver.chrome.driver", "C:\\Users\\makurin.a\\.cache\\selenium\\chromedriver\\win64\\119.0.6045.105\\chromedriver.exe");
+
                 chromeDriverInstance = new ChromeDriver();
                 chromeDriverInstance.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                 chromeDriverInstance.manage().window().maximize();

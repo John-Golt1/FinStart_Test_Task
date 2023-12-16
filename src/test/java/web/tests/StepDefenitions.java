@@ -1,11 +1,11 @@
+package web.tests;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import web.page.UserStartPage;
 
 public class StepDefenitions extends AbstractTest {
@@ -13,6 +13,7 @@ public class StepDefenitions extends AbstractTest {
     UserStartPage userStartPage;
     @Before
     public void initPage() {
+        driver = getDriver();
         userStartPage = new UserStartPage(driver);
     }
 
@@ -22,15 +23,16 @@ public class StepDefenitions extends AbstractTest {
         driver.get("https://testfortesting.online-loans.ph/");
     }
 
-    @When("^User fills the form$")
+    @When("^User fills the form and send form$")
     public void user_fills_the_form() {
         userStartPage.fillFormFirstLoan("Juan", "Pablo", "1", "09321412412");
         userStartPage.sendForm("Get First Loan");
     }
 
-    @Then("^User click button Get First Loan$")
+    @Then("^Check error$")
     public void checkErrors() {
-        // проверяем наличие ошибок
+        userStartPage.sendForm("Get First Loan");
+        userStartPage.checkFillError("Last name", "error"); //в задании не указано, на сайте непонятно поведение
     }
 
     @After
