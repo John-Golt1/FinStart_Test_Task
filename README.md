@@ -12,9 +12,7 @@
 5.	В поле Mobile содержится маска мобильного телефона. Телефон должен начинаться с 09-. Допустимы только цифровые символы.
 6.	При правильном заполнении и отправки формы пользователь переходит в раздел Personal Information.
 ## Pre-conditions:
-1. You must have the docker
-2. Run the docker
-## Steps:
-1. **Clone this repository**: git clone https://github.com/John-Golt1/Mayflower_test_exercise.git
-2. **If you haven't selenoid** in your computer, **run the command**: docker pull selenoid/chrome:latest 
-3. **In directory Mayflower_test_exercise** run the command: **docker-compose-up**
+Результат выполнения
+![Alt текст](https://i.ibb.co/j5DC6D3)
+
+
