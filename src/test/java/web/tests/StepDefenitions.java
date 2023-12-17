@@ -11,6 +11,7 @@ import web.page.UserStartPage;
 public class StepDefenitions extends AbstractTest {
     WebDriver driver;
     UserStartPage userStartPage;
+
     @Before
     public void initPage() {
         driver = getDriver();
@@ -23,16 +24,16 @@ public class StepDefenitions extends AbstractTest {
         driver.get("https://testfortesting.online-loans.ph/");
     }
 
-    @When("^User fills the form and send form$")
-    public void user_fills_the_form() {
-        userStartPage.fillFormFirstLoan("Juan", "Pablo", "1", "09321412412");
-        userStartPage.sendForm("Get First Loan");
+    @When("^User fills the form with \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\", \"([^\"]*)\"$")
+    public void user_fills_the_form(String firstName, String middleName, String lastName, String phoneNumber) {
+        userStartPage.fillFormFirstLoan(firstName, middleName, lastName, phoneNumber);
+        userStartPage.removeFocusFromSendFord(200, 0);
     }
 
-    @Then("^Check error$")
-    public void checkErrors() {
-        userStartPage.sendForm("Get First Loan");
-        userStartPage.checkFillError("Last name", "error"); //в задании не указано, на сайте непонятно поведение
+    @Then("^Check error for \"([^\"]*)\" with message \"([^\"]*)\"$")
+    public void checkErrors(String fillName, String errorText) {
+        userStartPage.checkFillError(fillName, errorText);
+        userStartPage.sendForm();
     }
 
     @After

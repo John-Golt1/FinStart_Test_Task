@@ -1,12 +1,13 @@
 package web.page;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import web.Element;
 
 public class BasePage {
-    protected Element element; // Изменено на protected, чтобы классы-наследники могли использовать element
+    protected Element element;
 
     public BasePage(WebDriver driver){
-        this.element = new Element(driver); // Инициализация объекта Element
+        this.element = new Element(driver);
     }
 }

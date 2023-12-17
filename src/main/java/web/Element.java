@@ -3,6 +3,7 @@ package web;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class Element {
     private WebDriver driver;
@@ -20,5 +21,10 @@ public class Element {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public void clickByXPathAndCoordinates(WebElement element, int x, int y) {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(element, x, y).click().perform();
     }
 }

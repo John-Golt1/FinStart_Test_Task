@@ -7,9 +7,11 @@ import org.openqa.selenium.WebElement;
 import static org.junit.Assert.assertTrue;
 
 public class UserStartPage extends BasePage {
-    private static final String INPUT_NAME_FILL = "//div[@role='formFloatGroup']/label[contains(text(),'%s')]";
+    private static final String INPUT_NAME_FILL = "//*[@role='formFloatGroup']/label[contains(text(),'%s')]/preceding-sibling::input";
+    private static final String SEND_FORM = "//div[@class='hero_widget__form']";
     private static final String INPUT_FILL_ERROR = "/following-sibling::span[contains(text(),'%s')]";
     private static final String BUTTON_GET_FIRST_LOAN = "//input[@type='submit' and @value='%s']";
+
 
     public UserStartPage(WebDriver driver) {
         super(driver);
@@ -38,13 +40,18 @@ public class UserStartPage extends BasePage {
         findInputItem("Mobile phone").sendKeys(phoneNumber);
     }
 
-    public void sendForm(String buttonName) {
-        findButton(buttonName).click();
+    public void sendForm() {
+        findButton("Get First Loan").click();
     }
 
     public void checkFillError(String fillName, String errorText) {
         String errorLocator = String.format(INPUT_NAME_FILL, fillName) + String.format(INPUT_FILL_ERROR, errorText);
         assertTrue("Ошибка [" + errorText + "] не найдена в поле [" + fillName + "]", element.isElementPresent(errorLocator));
+    }
+
+    public void removeFocusFromSendFord(int x, int y) {
+        WebElement elementForm = element.get(SEND_FORM);
+        element.clickByXPathAndCoordinates(elementForm, x, y);
     }
 
 }
