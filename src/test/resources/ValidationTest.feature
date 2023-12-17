@@ -11,6 +11,6 @@ Feature: Validation of form fields with different inputs
     Then Check error for "First name" with message "This field is required."
 
   Scenario: Checking Incorrect Mobile Phone Error
-    Given User opens the application
-    When User fills the form with "John", "Golt", "Test", "0832-124-1241"
-    Then Check error for "Mobile phone" with message "Should start with '09'"
+      Given User opens the application
+      When User fills the form with "John", "Golt", "Test", "0832-124-1241"
+      Then Check error for "Mobile phone" with message "Should start with '09'"
