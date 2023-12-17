@@ -13,6 +13,6 @@
 6.	При правильном заполнении и отправки формы пользователь переходит в раздел Personal Information.
 ## Pre-conditions:
 Результат выполнения
-![Alt текст](https://i.ibb.co/j5DC6D3)
+![Alt текст](<a href="https://ibb.co/j5DC6D3"><img src="https://i.ibb.co/TTtQvtP/photo-2023-12-17-21-36-11.jpg" alt="photo-2023-12-17-21-36-11" border="0"></a>)
 
 
