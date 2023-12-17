@@ -1,0 +1,19 @@
+# Maven и Gradle
+target/
+build/
+.gradle/
+.mvn/
+
+# IDE-специфичные файлы
+.idea/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+.springBeans
+.sts4-cache
+
+# VS Code
+.vscode/
